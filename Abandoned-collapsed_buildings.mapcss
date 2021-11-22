@@ -9,6 +9,17 @@ link: "https://wiki.openstreetmap.org/wiki/Damaged_buildings_crisis_mapping";
 modification: Magellan; 
 }
 
+area[building][abandoned=yes]
+{
+text: "abandoned";
+text-color: black;
+font-size: 10;
+z-index: 1;
+color: #00bfff;
+fill-color: #0086b3;
+width: 3;
+}
+
 area[building=collapsed]
 {
 text: "collapsed";
@@ -33,14 +44,4 @@ width: 3;
 dashes: 20,4;
 }
 
-area[building][abandoned=yes]
-{
-text: "abandoned";
-text-color: black;
-font-size: 10;
-z-index: 1;
-color: #00bfff;
-fill-color: #0086b3;
-width: 3;
-}
 
