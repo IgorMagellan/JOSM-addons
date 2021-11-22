@@ -6,7 +6,6 @@ description: "Style to classify buildings";
 version: "0.6_2020-10-05";
 author: "Hjart";
 link: "https://wiki.openstreetmap.org/wiki/Damaged_buildings_crisis_mapping";
-modification: Magellan;
 }
 
 area[building=collapsed]
