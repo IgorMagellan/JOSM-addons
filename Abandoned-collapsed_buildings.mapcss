@@ -33,7 +33,7 @@ width: 3;
 dashes: 20,4;
 }
 
-area[abandoned=yes]
+area[building][abandoned=yes]
 {
 text: "abandoned";
 text-color: black;
