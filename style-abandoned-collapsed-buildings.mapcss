@@ -1,0 +1,47 @@
+
+meta
+{
+title: "Abandoned/Collapsed/damaged buildings";
+description: "Style to classify buildings";
+version: "0.5_2018-03-24";
+author: "Hjart", "Igor Magellan";
+link: "https://wiki.openstreetmap.org/wiki/Damaged_buildings_crisis_mapping" ;
+watch-modified: true;
+}
+
+area[building=collapsed]
+{
+text: "collapsed";
+text-color: black;
+dashes: 20,4;
+font-size: 10;
+z-index: 1;
+color: #FF2238;
+fill-color: #FF2238;
+width: 3;
+}
+
+area[building=damaged]
+{
+text: "damaged";
+text-color: white;
+font-size: 10;
+z-index: 1;
+color: #b3ff99;
+fill-color: #b3ff99;
+width: 3;
+dashes: 20,4;
+}
+
+
+area[building][abandoned=yes]
+{
+text: "abandoned";
+text-color: black;
+font-size: 10;
+z-index: 1;
+color: #73dcff;
+fill-color: #73dcff;
+width: 3;
+}
+
