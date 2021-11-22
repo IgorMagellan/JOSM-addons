@@ -1,6 +1,5 @@
 
 meta
-/*
 {
 title: "Abandoned/collapsed/damaged buildings";
 description: "Style to classify buildings";
@@ -9,7 +8,6 @@ author: "Hjart";
 link: "https://wiki.openstreetmap.org/wiki/Damaged_buildings_crisis_mapping";
 modification: Magellan; 
 }
-*/
 
 area[building=collapsed]
 {
