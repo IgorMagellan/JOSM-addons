@@ -1,0 +1,310 @@
+
+meta 
+{
+    title: "Surface";
+    description: "Visualize surface=* of objects";
+    version: "1.25_2019-07-18";
+    author: "cmuelle8";
+    link: "https://josm.openstreetmap.de/wiki/Styles/Surface";
+}
+
+meta[lang=ru]
+{
+    title: "Tracktype и smoothness Highlight property";
+    description: "Выделение тарарам";
+}
+
+canvas
+{
+    fill-color: #606060;
+}
+
+
+
+
+node
+{
+    symbol-shape: square;
+    symbol-size: 6;
+    symbol-stroke-color: #d9d900;
+    symbol-stroke-opacity: 0.9;
+}
+
+node:connection
+{
+    symbol-shape: square;
+    symbol-size: 6;
+    symbol-stroke-color: #d9d900;
+    symbol-stroke-opacity: 0.9;
+}
+
+
+
+
+way
+{
+    width: 1;
+    color: #FF0000;
+    opacity: 0.0;
+}
+
+way[landuse]:closed
+{
+    fill-color: yellow;
+    fill-opacity: 0.02;
+    z-index: -0.9;
+}
+
+way[natural]:closed
+{
+    fill-color: green;
+    fill-opacity: 0.02;
+    z-index: -0.9;
+}
+
+way[building]:closed
+{
+    width: 2;
+    color: magenta;
+    opacity: 0.1;
+    fill-color: magenta;
+    fill-opacity: 0.02;
+    z-index: 0.2;
+}
+
+way[highway][area?]:closed
+{
+    width: 2;
+    color: orange;
+    opacity: 0.5;
+    fill-color: orange;
+    fill-opacity: 0.2;
+    z-index: -0.5;
+}
+
+/******************/
+/* tracktype tags */
+/******************/
+
+way[highway=track][tracktype=grade1] {
+    dashes: 8,1;
+}
+way[highway=track][tracktype=grade2] {
+    dashes: 6,2;
+}
+way[highway=track][tracktype=grade3] {
+    dashes: 4,3;
+}
+way[highway=track][tracktype=grade4] {
+    dashes: 4,5;
+}
+way[highway=track][tracktype=grade5] {
+    dashes: 4,7;
+}
+
+
+
+way|z11-[highway][!area]
+{
+    color: #909090;
+    opacity: 1.0;
+    z-index: 0.9;
+}
+
+way|z-10[highway][surface]
+{
+    color: #909090;
+    opacity: 1.0;
+    z-index: 1.0;
+}
+
+way|z-10[highway][smoothness]
+{
+    color: #90F090;
+    opacity: 1.0;
+    z-index: 1.0;
+}
+
+way|z-11[highway][smoothness][surface]
+{
+    color: white;
+    opacity: 1.0;
+    z-index: 1.0;
+}
+
+
+
+
+way|z12-[highway][smoothness]
+{
+    width: 1.5;
+    color: #202020;
+}
+
+way|z14-[highway][smoothness][surface]
+{
+    color: #808080;
+}
+
+way|z12-[highway][smoothness=impassable]
+{
+    color: eval(rgb((7*0.142*(1-red(prop(color)))) + red(prop(color)), (1*0.142*(1-green(prop(color)))) + green(prop(color)), blue(prop(color))));
+    dashes: list(2,10,5,10);
+}
+
+way|z12-[highway][smoothness=very_horrible]
+{
+    color: eval(rgb((6*0.142*(1-red(prop(color)))) + red(prop(color)), (2*0.142*(1-green(prop(color)))) + green(prop(color)), blue(prop(color))));
+    dashes: list(2,10,5,3);
+}
+
+way|z12-[highway][smoothness=horrible]
+{
+    color: eval(rgb((5*0.142*(1-red(prop(color)))) + red(prop(color)), (3*0.142*(1-green(prop(color)))) + green(prop(color)), blue(prop(color))));
+    dashes: list(3,5,2,2);
+}
+
+way|z12-[highway][smoothness=very_bad]
+{
+    color: eval(rgb((4*0.142*(1-red(prop(color)))) + red(prop(color)), (4*0.142*(1-green(prop(color)))) + green(prop(color)), blue(prop(color))));
+    dashes: list(4,4,2,2);
+}
+
+way|z12-[highway][smoothness=bad]
+{
+    color: eval(rgb((3*0.142*(1-red(prop(color)))) + red(prop(color)), (5*0.142*(1-green(prop(color)))) + green(prop(color)), blue(prop(color))));
+    dashes: list(7,5);
+}
+
+way|z12-[highway][smoothness=intermediate]
+{
+    color: eval(rgb((2*0.142*(1-red(prop(color)))) + red(prop(color)), (6*0.142*(1-green(prop(color)))) + green(prop(color)), blue(prop(color))));
+    dashes: list(10,2);
+}
+
+way|z12-[highway][smoothness=good]
+{
+    color: eval(rgb((1*0.142*(1-red(prop(color)))) + red(prop(color)), (7*0.142*(1-green(prop(color)))) + green(prop(color)), blue(prop(color))));
+}
+
+way|z12-[highway][smoothness=excellent]
+{
+    color: white;
+}
+
+
+
+
+way|z13-[highway][smoothness][surface]
+{
+    width: 2.0;
+    my-encasing: 1.0;
+}
+
+way|z14-[highway][smoothness][surface]
+{
+    width: 2.5;
+    my-encasing: 2.5;
+}
+
+way|z15-[highway][smoothness][surface]
+{
+    width: 3.0;
+    my-encasing: 3.0;
+}
+
+
+
+
+way|z14-[highway][smoothness]
+{
+    text: "smoothness";
+    text-color: #EEE9BF;
+}
+
+way|z14-[highway][smoothness=~/excellent|good/]
+{
+    text: none;
+    text-color: #EEE9BF;
+}
+
+way|z14-[highway][surface]
+{
+    font-family: Arial;
+    text: "surface";
+    text-color: #B0EEEE;
+}
+
+way|z14-[highway][smoothness],
+way|z14-[highway][surface]
+{
+    font-size: 10;
+    text-offset: 7;
+    text-position: line;
+    z-index: 1.0;
+}
+
+way|z14-[highway][surface=~/^paved|asphalt/]
+{
+    text-color: black;
+    render-encasing: true;
+    render-text: none;
+}
+
+way|z14-[highway][surface=~/paving|concrete|cobble/]
+{
+    text-color: #004040;
+    render-encasing: true;
+    render-text: eval(prop(text));
+}
+
+way|z15-[highway][surface=~/gravel|pebble/]
+{
+    text-color: #D0D090;
+}
+
+way|z15-[highway][surface=~/unpaved|dirt|earth|ground|mud/]
+{
+    text-color: #FFB0B0;
+}
+
+way|z15-[highway][surface=sand]
+{
+    text-color: #FFFF80;
+}
+
+way|z15-[highway][surface=grass]
+{
+    text-color: #80FF80;
+}
+
+way|z14-[highway][surface][!smoothness]
+{
+    color: eval(prop(text-color));
+    dashes: list(2,1);
+}
+
+way|z14-[highway][eval(prop(render-encasing))][smoothness=~/excellent|good|intermediate|^bad/]
+{
+    text: eval(prop(render-text));
+    casing-width: eval(prop(width) + prop(my-encasing));
+    casing-color: eval(prop(text-color));
+    casing-dashes: eval(prop(dashes));
+}
+
+
+
+
+way|z-14[highway]
+{
+    text: none;
+}
+
+way|z-14[highway=~/trunk|primary|secondary|tertiary|path|track/]
+{
+    font-size: 10;
+    text: auto;
+    text-offset: -6;
+}
+
+
